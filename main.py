@@ -3,9 +3,9 @@ import matplotlib.pyplot as plt
 
 data = {
     'Basket': ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P'],
-    'Apples': [10, 20, 30, 56, 40, 40, 67, 47, 40, 4, 49, 52, 5, 56, 35, 45],
-    'Bananas': [15, 6, 3, 45, 67, 44, 45, 11, 14, 18, 13, 12, 1, 34, 12, 12],
-    'Oranges': [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160]
+    'Apples': [3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48],
+    'Bananas': [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32],
+    'Oranges': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
 }
 
 df = pd.DataFrame(data)
@@ -16,10 +16,10 @@ sum_oranges = df['Oranges'].sum()
 
 x = ['Apples', 'Bananas', 'Oranges']
 
-h = [sum_apples, sum_bananas, sum_oranges]
+y = [sum_apples, sum_bananas, sum_oranges]
 
-plt.bar(x, h, color=['green', 'blue', 'Orange'])
+plt.bar(x, y, color=['green', 'blue', 'Orange'])
 
-plt.title('Comparison of total Apples and Bananas')
+plt.title('Comparison of total Apples and Bananas and Oranges')
 
 plt.show()
