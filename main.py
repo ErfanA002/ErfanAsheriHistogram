@@ -7,10 +7,10 @@ data = np.random.randn(1000)
 
 plt.hist(data, bins=30, edgecolor='black')
 
-plt.title('Histogram Example')
+plt.title('Erfan Asheri Histogram')
 
-plt.xlabel('Values')
+plt.xlabel('Y')
 
-plt.ylabel('Frequency') 
+plt.ylabel('X') 
 
 plt.show()
