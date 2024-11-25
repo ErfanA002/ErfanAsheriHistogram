@@ -1,16 +1,16 @@
-import matplotlib.pyplot as plt
+import cv2
 import numpy as np
+from matplotlib import pyplot as plt
 
-# Generate random data for the histogram
-data = np.random.randn(1000)
+img = cv2.imread('myimage.jpg',0)
 
-# Plotting a basic histogram
-plt.hist(data, bins=30, color='skyblue', edgecolor='black')
+hist,bins = np.histogram(img.flatten(),256,[0,256])
 
-# Adding labels and title
-plt.xlabel('Values')
-plt.ylabel('Frequency')
-plt.title('Basic Histogram Erfan Asheri')
+cdf = hist.cumsum()
+cdf_normalized = cdf * hist.max()/ cdf.max()
 
-# Display the plot
+plt.plot(cdf_normalized, color = 'b')
+plt.hist(img.flatten(),256,[0,256], color = 'r')
+plt.xlim([0,256])
+plt.legend(('cdf','histogram'), loc = 'upper left')
 plt.show()
