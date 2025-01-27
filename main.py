@@ -10,3 +10,4 @@ res = np.hstack((img,equ))
 cv2.imwrite('res.png',res)
 
 
+
