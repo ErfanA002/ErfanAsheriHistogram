@@ -1,20 +1,19 @@
 #!/bin/bash
 
-# Read the commit message from the temporary file
+# دریافت پیام کامیت از فایل موقت
 COMMIT_MSG=$(cat "$1")
 
-# Check the commit message using regex
-if [[ ! "$COMMIT_MSG" =~ ^(feat|fix|docs|style|refactor|test|chore)(\([a-z]+\))?:\s.+ ]]; then
+# الگوی regex برای پیام‌های کامیت Gitflow (قابل تنظیم)
+# مثال: feat(user-authentication): Add login feature
+REGEX="^(feat|fix|docs|style|refactor|test|chore|build|ci|perf|revert)\(\w+\): .*$"
+
+# بررسی مطابقت پیام با الگو
+if [[ ! "$COMMIT_MSG" =~ $REGEX ]]; then
   echo "Error: Commit message does not follow Gitflow conventions."
-  echo "Please use one of the following formats:"
-  echo "  - feat(scope): description"
-  echo "  - fix(scope): description"
-  echo "  - docs(scope): description"
-  echo "  - style(scope): description"
-  echo "  - refactor(scope): description"
-  echo "  - test(scope): description"
-  echo "  - chore(scope): description"
+  echo "Please use a format like: <type>(<scope>): <message>"
+  echo "Example: feat(user-authentication): Add login feature"
   exit 1
 fi
 
+# اگر همه چیز درست بود
 exit 0
