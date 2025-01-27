@@ -8,6 +8,3 @@ equ = cv2.equalizeHist(img)
 res = np.hstack((img,equ))
 
 cv2.imwrite('res.png',res)
-
-
-
